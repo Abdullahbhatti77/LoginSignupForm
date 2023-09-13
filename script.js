@@ -15,7 +15,6 @@ goToSignUp.addEventListener("click", function () {
     loginForm.style.display = "none";
     signupForm.style.display = "block";
 });
-
 goToLogin.addEventListener("click", function () {
     signupForm.style.display = "none";
     loginForm.style.display = "block";
@@ -26,17 +25,14 @@ function loginData(event) {
     event.preventDefault();
     var loginEmail = document.getElementById("loginEmail").value;
     var loginPassword = document.getElementById("loginPassword").value;
-
     // For local storage
     localStorage.setItem("loginEmail", loginEmail);
     localStorage.setItem("loginPassword", loginPassword);
-    
     // For Email Validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(loginEmail)) {
         alert("Invalid email format. Please enter a valid email.");
     }
-
     // For Password length validation
     if (loginPassword.length < 6) {
         alert("Password must be at least 6 characters long.");
@@ -46,7 +42,6 @@ function loginData(event) {
 // For Sign Up Form
 function signUpData(event) {
     event.preventDefault();
-
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
     var email = document.getElementById("email").value;
@@ -54,7 +49,6 @@ function signUpData(event) {
     var address = document.getElementById("address").value;
     var phone = document.getElementById("phone").value;
     var image = document.getElementById("imageUpload").value;
-
     // For local storage
     localStorage.setItem("first_name", firstName);
     localStorage.setItem("last_name", lastName);
