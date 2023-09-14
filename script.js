@@ -3,7 +3,7 @@ togglePassword.addEventListener("click", function () {
     if (loginPassword.type === "password") {
         loginPassword.type = "text";
         togglePassword.textContent = "Hide";
-    } 
+    }
     else {
         loginPassword.type = "password";
         togglePassword.textContent = "Show";
@@ -49,6 +49,7 @@ function signUpData(event) {
     var address = document.getElementById("address").value;
     var phone = document.getElementById("phone").value;
     var image = document.getElementById("imageUpload").value;
+    var captureImage=document.getElementById("captureImage").value;
     // For local storage
     localStorage.setItem("first_name", firstName);
     localStorage.setItem("last_name", lastName);
@@ -57,6 +58,25 @@ function signUpData(event) {
     localStorage.setItem("address", address);
     localStorage.setItem("phone", phone);
     localStorage.setItem("image", image);
+    localStorage.setItem("captureImage", captureImage);
 }
+
+// For webcam
+Webcam.set({
+    width: 350,
+    height: 350,
+    image_format: 'jpeg',
+    jpeg_quality: 90
+});
+
+Webcam.attach("#camera");
+
+function capture_image() {
+    Webcam.snap(function (data_uri) {
+        document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>'
+    });
+}
+
+
 
 

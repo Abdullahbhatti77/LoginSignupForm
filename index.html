@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>User Login and Sign-up</title>
+    <style>
+        #camera {
+            width: 350px;
+            height: 350px;
+            border: 1px solid black;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -33,7 +42,7 @@
         </div>
 
         <!-- Sign Up Form -->
-        <div id="signupForm" style="display: none;" onsubmit="signUpData(event)">
+        <div id="signupForm" onsubmit="signUpData(event)" style="display: none;">
             <h2>Sign Up</h2>
             <form id="signup">
                 <div class="form-group">
@@ -64,20 +73,33 @@
                     <label for="imageUpload">Image Upload</label>
                     <input type="file" class="form-control-file" id="imageUpload" name="image" required>
                 </div>
-                <div class="form-group">
+
+                <div id="camera"></div>
+                <button type="button" class="btn btn-danger" onclick="capture_image()" id="captureImage">Capture
+                    Image</button>
+                <div id="results"></div>
+
+                <!-- <div class="form-group">
                     <label for="liveImageCapture">Live Image Capture</label>
                     <button type="button" class="btn btn-danger" id="captureImage">Capture Image</button>
-                </div>
+                </div> -->
 
                 <button type="button" class="btn btn-secondary" id="goToLogin">Back to Login</button>
                 <button type="submit" class="btn btn-primary">Sign Up</button>
+
             </form>
         </div>
 
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"
+        integrity="sha512-dQIiHSl2hr3NWKKLycPndtpbh5iaHLo6MwrXm7F0FM5e+kL2U16oE9uIwPHUl6fQBeCthiEuV/rzP3MiAB8Vfw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="script.js"></script>
 
 </body>
+
+
 
 </html>
